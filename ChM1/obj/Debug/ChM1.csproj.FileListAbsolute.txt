@@ -1,0 +1,6 @@
+D:\Visual_Studio_Projects\ChM1\ChM1\bin\Debug\ChM1.exe.config
+D:\Visual_Studio_Projects\ChM1\ChM1\obj\Debug\ChM1.csprojResolveAssemblyReference.cache
+D:\Visual_Studio_Projects\ChM1\ChM1\bin\Debug\ChM1.exe
+D:\Visual_Studio_Projects\ChM1\ChM1\bin\Debug\ChM1.pdb
+D:\Visual_Studio_Projects\ChM1\ChM1\obj\Debug\ChM1.exe
+D:\Visual_Studio_Projects\ChM1\ChM1\obj\Debug\ChM1.pdb

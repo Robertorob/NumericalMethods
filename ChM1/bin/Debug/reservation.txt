@@ -1,0 +1,29 @@
+sw.WriteLine("Погрешности. h = 0.2, n = 10");
+            double[] nodes = NodesH(a, b, 0.2);
+            double[] args = NodesH(a, b, 0.1);
+            double[] values = Tabulation(eps, nodes);
+            double[] ipl = IPL(nodes, values, args);
+            double[] error = Error(ipl, values);
+            MassivOut(error, sw);
+            sw.WriteLine("Максимальная погрешность " + error.Max().ToString());
+            sw.WriteLine();
+
+            sw.WriteLine("Погрешности. h = 0.1, n = 20");
+            nodes = NodesH(a, b, 0.1);
+            args = NodesH(a, b, 0.05);
+            values = Tabulation(eps, args);
+            ipl = IPL(nodes,values,args);
+            error = Error(ipl, values);
+            MassivOut(error, sw);
+            sw.WriteLine("Макс погрешность " + error.Max().ToString());
+            sw.WriteLine();
+
+            sw.WriteLine("Погрешности. h = 0.05, n = 40");
+            nodes = NodesH(a, b, 0.05);
+            args = NodesH(a, b, 0.025);
+            values = Tabulation(eps, args);
+            ipl = IPL(nodes, values, args);
+            error = Error(ipl, values);
+            MassivOut(error, sw);
+            sw.WriteLine("Макс погрешность " + error.Max().ToString());
+           
