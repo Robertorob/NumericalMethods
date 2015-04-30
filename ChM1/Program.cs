@@ -254,7 +254,7 @@ namespace ChM1
             //Stack<double> errors = new Stack<double>();
             sw.WriteLine();
             sw.WriteLine("Производная");
-            sw.WriteLine("Погрешности. h = 1, n = 2");
+            sw.WriteLine("Погрешности. h = 1ааааааа, n = 2");
             double[] nodes = NodesN(a, b, 2);
             double[] args = NodesN(a, b, 4);
             double[] values = Tabulation(eps, nodes);
@@ -471,12 +471,11 @@ namespace ChM1
             return nodes;
         }
 
-        static void TaskChebysh(StreamWriter sw)
+        static void OneExperimentForChebysh(StreamWriter sw, int n, double a, double b, double eps)
         {
-            double a = 0, b = 2, eps = 0.000001;
-            sw.WriteLine("Погрешности.  n = 8");
-            double[] nodes = NodesC(a, b, 8);
-            double[] args = NodesN(a, b, 16);
+            sw.WriteLine("Погрешности.  n = "+n.ToString());         
+            double[] nodes = NodesC(a, b, n);
+            double[] args = NodesN(a, b, n*2);
             double[] values = Tabulation(eps, nodes);
             double[] ipl = IPL(nodes, values, args);
             double[] error = Error(ipl, Tabulation(eps, args));
@@ -485,42 +484,65 @@ namespace ChM1
             sw.WriteLine();
             MassivOut(error, sw);
             sw.WriteLine();
+        }
 
-            sw.WriteLine("Погрешности.  n = 10");
-            nodes = NodesC(a, b, 10);
-            args = NodesN(a, b, 20);
-            values = Tabulation(eps, nodes);
-            ipl = IPL(nodes, values, args);
-            error = Error(ipl, Tabulation(eps, args));
-            MassivOut(args, sw);
-            sw.WriteLine(error.Max().ToString());
-            sw.WriteLine();
-            MassivOut(error, sw);
-            sw.WriteLine();
+        static void TaskChebysh(StreamWriter sw)
+        {
+            double a = 0, b = 2, eps = 0.000001;
+            OneExperimentForChebysh(sw, 4, a, b, eps);
+            OneExperimentForChebysh(sw, 5, a, b, eps);
+            OneExperimentForChebysh(sw, 8, a, b, eps);
+            OneExperimentForChebysh(sw, 10, a, b, eps);
+            OneExperimentForChebysh(sw, 16, a, b, eps);
+            OneExperimentForChebysh(sw, 20, a, b, eps);
+            OneExperimentForChebysh(sw, 25, a, b, eps);
+            ////sw.WriteLine("Погрешности.  n = 8");
+            //double[] nodes = NodesC(a, b, 8);
+            //double[] args = NodesN(a, b, 16);
+            //double[] values = Tabulation(eps, nodes);
+            //double[] ipl = IPL(nodes, values, args);
+            //double[] error = Error(ipl, Tabulation(eps, args));
+            ////MassivOut(args, sw);
+            ////sw.WriteLine(error.Max().ToString());
+            ////sw.WriteLine();
+            ////MassivOut(error, sw);
+            ////sw.WriteLine();
 
-            sw.WriteLine("Погрешности.  n = 40");
-            nodes = NodesC(a, b, 40);
-            args = NodesN(a, b, 80);
-            values = Tabulation(eps, nodes);
-            ipl = IPL(nodes, values, args);
-            error = Error(ipl, Tabulation(eps, args));
-            MassivOut(args, sw);
-            sw.WriteLine(error.Max().ToString());
-            sw.WriteLine();
-            MassivOut(error, sw);
-            sw.WriteLine();
+            //sw.WriteLine("Погрешности.  n = 10");
+            //nodes = NodesC(a, b, 10);
+            //args = NodesN(a, b, 20);
+            //values = Tabulation(eps, nodes);
+            //ipl = IPL(nodes, values, args);
+            //error = Error(ipl, Tabulation(eps, args));
+            //MassivOut(args, sw);
+            //sw.WriteLine(error.Max().ToString());
+            //sw.WriteLine();
+            //MassivOut(error, sw);
+            //sw.WriteLine();
 
-            sw.WriteLine("Погрешности.  n = 100");
-            nodes = NodesC(a, b, 100);
-            args = NodesN(a, b, 200);
-            values = Tabulation(eps, nodes);
-            ipl = IPL(nodes, values, args);
-            error = Error(ipl, Tabulation(eps, args));
-            MassivOut(args, sw);
-            sw.WriteLine(error.Max().ToString());
-            sw.WriteLine();
-            MassivOut(error, sw);
-            sw.WriteLine();
+            //sw.WriteLine("Погрешности.  n = 40");
+            //nodes = NodesC(a, b, 40);
+            //args = NodesN(a, b, 80);
+            //values = Tabulation(eps, nodes);
+            //ipl = IPL(nodes, values, args);
+            //error = Error(ipl, Tabulation(eps, args));
+            //MassivOut(args, sw);
+            //sw.WriteLine(error.Max().ToString());
+            //sw.WriteLine();
+            //MassivOut(error, sw);
+            //sw.WriteLine();
+
+            //sw.WriteLine("Погрешности.  n = 100");
+            //nodes = NodesC(a, b, 100);
+            //args = NodesN(a, b, 200);
+            //values = Tabulation(eps, nodes);
+            //ipl = IPL(nodes, values, args);
+            //error = Error(ipl, Tabulation(eps, args));
+            //MassivOut(args, sw);
+            //sw.WriteLine(error.Max().ToString());
+            //sw.WriteLine();
+            //MassivOut(error, sw);
+            //sw.WriteLine();
             
         }
 
